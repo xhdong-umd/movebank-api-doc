@@ -50,15 +50,15 @@ To ensure that users are aware of the license terms for each study, we require t
 ## Accessing the database using HTTP/CSV requests
 The following are examples of how to access information from the Movebank database with HTTP requests. After providing a valid username and password, these calls will return .csv files containing the requested information. Note that the results will be based on the information available to the user as defined by access permissions (see above). For more information about the data model and attributes contained in the database, see Kranstauber et al. (2011) and [the Movebank Attribute Dictionary](https://www.movebank.org/node/2381).
 
-### Get a list of attribute names
+### 1. Get a list of attribute names
 `https://www.movebank.org/movebank/service/direct-read?attributes`
 
 This will open a list of available attribute names by entity type that can be used to further specify the example queries below.
 
-### Get descriptions of entities in the database
+### 2. Get descriptions of entities in the database
 You may want to query general information about what is contained in the database. You can obtain information about the following entity types in the database prior to specifying a specific study: study, tag_type, taxon. Note that the taxonomy in Movebank comes from [the Integrated Taxonomic Information System](https://www.itis.gov/) (ITIS).
 
-#### Get a list of sensor types
+#### 2.1 Get a list of sensor types
 `https://www.movebank.org/movebank/service/direct-read?entity_type=tag_type`
 
 
@@ -81,7 +81,7 @@ Result
 
 From this you can see that the sensor type ID for GPS data is 653 and that the “accessory measurements” sensor does not include location information.
 
-#### Get a list of studies
+#### 2.2 Get a list of studies
 `https://www.movebank.org/movebank/service/direct-read?entity_type=study`
 
 Result
@@ -91,15 +91,15 @@ Result
 
 These results provide the study name (`study`), the study ID (`id`), user-provided study details, and information about your username's access permissions. To determine your access rights, filter the list using `i_am_owner`, `i_can_see_data` and/or `there_are_data_which_i_cannot_see`. Remember that you may have permission to see only the study details, view some or all tracks but not download data, or view and download some or all data. Also, there are studies that you do not have permission to see at all—these studies will not be included in the list. Please ignore the columns with summary statistics about the studies (`number_of_deployments`, `number_of_events`, `number_of_individuals`, `number_of_tags`, `timestamp_end`, `timestamp_start`)—these columns are now obsolete.
 
-#### Get a list of studies a user is a data manager for
+#### 2.3 Get a list of studies a user is a data manager for
 `https://www.movebank.org/movebank/service/direct-read?entity_type=study&i_am_owner=true`
 
 Results will be the same as in the previous example, but filtered for only the studies for which `i_am_owner` contains `TRUE`.
 
-### Get descriptions of entities in a study
+### 3. Get descriptions of entities in a study
 When you have a certain study of interest, you can access information contained in that study using the study’s Movebank ID (available in [the Study Details](https://www.movebank.org/node/1942#study_details)). You can obtain information for the following entity types: `study`, `individual`, `tag`, `deployment`, and `event`. The event entities contain actual sensor measurements, while the deployment, individual, and tag entities contain descriptive information about the animals, tags, and deployments (i.e. of tags on animals) in the study. In Movebank we refer to the latter information as "[reference data](https://www.movebank.org/2381#metadata)". For the examples that follow we will use the study "Galapagos Albatrosses" (study ID 2911040) which is fully available to the public.
 
-#### Get a summary of information about the study
+#### 3.1 Get a summary of information about the study
 `https://www.movebank.org/movebank/service/direct-read?entity_type=study&study_id=2911040`
 
 Result
@@ -111,7 +111,7 @@ Result
 ```
 
 
-#### Get tag reference information from the study
+#### 3.2 Get tag reference information from the study
 `https://www.movebank.org/movebank/service/direct-read?entity_type=tag&study_id=2911040`
 
 Result
@@ -128,7 +128,7 @@ Result
 
 Attributes listed in the file include tag descriptors currently in the database. Those that have not been provided by the data owner will be blank. The attribute "local_identifier" contains the user-provided tag IDs (which can be changed by the data owner), and the attribute "id" contains internal identifiers automatically created in the database.
 
-#### Get animal reference information from the study
+#### 3.3 Get animal reference information from the study
 `https://www.movebank.org/movebank/service/direct-read?entity_type=individual&study_id=2911040`
 
 Result
@@ -143,7 +143,7 @@ Result
 |Nest stage: egg |               |                   |                    | 2911078|                 |3606-30668       |        |    |                     |
 ```
 		
-#### Get deployment reference information from the study
+#### 3.4 Get deployment reference information from the study
 `https://www.movebank.org/movebank/service/direct-read?entity_type=deployment&study_id=2911040`
 
 Result
@@ -158,7 +158,7 @@ Result
 |adult             |            |                              |tape            |                      |not used in analysis |                         |                    |                     |                  |                     |              -1.58|              -81.15|                 |                    |                        |                    |GPS locations recorded every 90 minutes |                       |                           |                           |                               |                     | 2911178|159-unbanded-159 |                           |                      |none              |                   |Isla de la Plata |other-wireless     |
 ```
 
-### Get event data from the study
+### 4. Get event data from the study
 `https://www.movebank.org/movebank/service/direct-read?entity_type=event&study_id=2911040`
 
 Result
@@ -175,7 +175,7 @@ Result
 
 These results include the full event-level dataset (the “tracking data” for location sensors) limited to the variables timestamp, latitude/longitude coordinates, and the individual and tag IDs (using internal Movebank identifiers), and including locations not associated with an animal (using `individual_id`) and locations marked as outliers.
 
-#### Get event data for a single sensor type
+#### 4.1 Get event data for a single sensor type
 `https://www.movebank.org/movebank/service/direct-read?entity_type=event&study_id=2911040&sensor_type_id=653`
 
 Result
@@ -192,7 +192,7 @@ Result
 
 If multiple sensor types are used in a study, use this to access event-level data for a specific sensor. See “get a list of sensor types” above for the `sensor_type_id` for each sensor type.
 
-#### Get event data for an individual animal
+#### 4.2 Get event data for an individual animal
 `https://www.movebank.org/movebank/service/direct-read?entity_type=event&study_id=2911040&individual_id=2911059`
 
 Result
@@ -209,7 +209,7 @@ Result
 
 The individual_id refers to the internal Movebank identifier for each animal in Movebank (which does not change if the user changes the Animal ID). You can view these identifiers in [the Event Editor](https://www.movebank.org/node/42) or contact support@movebank.org for help.
 
-#### Get event data for a specified time period
+#### 4.3 Get event data for a specified time period
 `https://www.movebank.org/movebank/service/direct-read?entity_type=event&study_id=2911040&timestamp_start=20080604133045000&timestamp_end=20080604133046000`
 
 Result
@@ -229,7 +229,7 @@ Result
 
 Timestamps should be provided in the format `yyyyMMddHHmmssSSS` (see [list of letter meanings](http://fmpp.sourceforge.net/datetimepattern.html)).
 
-#### Get event data with additional event-level attributes
+#### 4.4 Get event data with additional event-level attributes
 `https://www.movebank.org/movebank/service/direct-read?entity_type=event&study_id=2911040&attributes=individual_id,timestamp,location_long,location_lat,visible`
 
 Result
