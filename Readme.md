@@ -15,12 +15,13 @@ With documentation in markdown format, it will be much eaiser to manage with ver
 ├── document
 │   ├── all_attributes.md                             *all attributes annoated*
 │   └── movebank_api.md                               *the api document in markdown*
+│   └── rtf_format_version_2015.11
+│       └── movebank_api.rtf                          *the original api document*
 ├── postman
 │   ├── movebank_no_auth.postman_collection.json      *postman collection of some api calls*
 │   ├── postman1.png
 │   └── postman2.png
-├── rtf_format_version_2015.11
-│   └── movebank_api.rtf                              *the original api document*
+
 └── utils
     └── csv_to_markdown_table.Rmd                     *R code to convert csv into markdown table*
 ```
