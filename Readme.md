@@ -1,5 +1,5 @@
 # Intro on the fork
-The fork is aimed to provide a update to the movebank api document. 
+The fork is aimed to provide an update to the movebank api document. 
 
 The first commit just convert original document from rtf to markdown with only format changes, which inlcude:
 - convert links to markdown links
@@ -9,12 +9,30 @@ The first commit just convert original document from rtf to markdown with only f
 
 With documentation in markdown format, it will be much eaiser to manage with version control, accept pull requests from user etc.
 
-# Tips on working with API
+## files
+```
+├── Readme.md
+├── document
+│   ├── all_attributes.md                             *all attributes annoated*
+│   └── movebank_api.md                               *the api document in markdown*
+├── postman
+│   ├── movebank_no_auth.postman_collection.json      *postman collection of some api calls*
+│   ├── postman1.png
+│   └── postman2.png
+├── rtf_format_version_2015.11
+│   └── movebank_api.rtf                              *the original api document*
+└── utils
+    └── csv_to_markdown_table.Rmd                     *R code to convert csv into markdown table*
+```
+
+## Tips on working with API
 - You can open a specific study page directly with url pattern like
 
     `https://www.movebank.org/movebank/#page=studies,path=study121041109`
 
     I found this is very helpful in development and testing.
+
+- I added some notes to the `all attributes` response, which have many important API calls not covered by the original api document.
 
 - I strong recommend to use [postman](https://www.getpostman.com/) for web API development.
     + You can save your user name and password in environment, then use them in any API call easily.
