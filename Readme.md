@@ -18,6 +18,6 @@ With documentation in markdown format, it will be much eaiser to manage with ver
 
 - I strong recommend to use [postman](https://www.getpostman.com/) for web API development.
     + You can save your user name and password in environment, then use them in any API call easily
-  ![postman 1](postman/postman download data.png)
+  ![postman 1](postman/postman1.png)
     + You can save your API call into a collection, edit API call parameters easily, check API call response header, results with different viewing modes.
-  ![postman 2](postman/postman response preview.png)
+  ![postman 2](postman/postman2.png)
