@@ -21,6 +21,7 @@ Output attributes: access_profile_id, animal_life_stage, animal_mass, animal_rep
 Filter attributes: access_profile_id, animal_life_stage, animal_mass, animal_reproductive_condition, attachment_type, behavior_according_to, comments, data_processing_software, deploy_off_latitude, deploy_off_longitude, deploy_off_person, deploy_off_timestamp, deploy_on_latitude, deploy_on_longitude, deploy_on_person, deploy_on_timestamp, deployment_end_comments, deployment_end_type, duty_cycle, external_id, external_id_namespace_id, geolocator_calibration, geolocator_light_threshold, geolocator_sensor_comments, geolocator_sun_elevation_angle, habitat_according_to, i_am_owner, id, individual_id, local_identifier, location_accuracy_comments, manipulation_comments, manipulation_type, partial_identifier, study_id, study_site, tag_id, tag_readout_method
 
 > example: call with `study_id`
+> 
 > `https://www.movebank.org/movebank/service/direct-read?entity_type=deployment&study_id=1764627`
 
 ```
@@ -42,7 +43,9 @@ Output attributes: acceleration_axes, acceleration_raw_x, acceleration_raw_y, ac
 Filter attributes: acceleration_axes, acceleration_raw_x, acceleration_raw_y, acceleration_raw_z, acceleration_sampling_frequency_per_axis, acceleration_x, acceleration_y, acceleration_z, accelerations_raw, activity_count, activity_count, algorithm_marked_outlier, argos_altitude, argos_best_level, argos_calcul_freq, argos_error_radius, argos_gdop, argos_iq, argos_lat1, argos_lat2, argos_lc, argos_lon1, argos_lon2, argos_nb_mes, argos_nb_mes_120, argos_nb_mes_identical, argos_nopc, argos_orientation, argos_pass_duration, argos_sat_id, argos_semi_major, argos_semi_minor, argos_sensor_1, argos_sensor_2, argos_sensor_3, argos_sensor_4, argos_transmission_timestamp, argos_valid_location_algorithm, argos_valid_location_manual, barometric_depth, barometric_height, barometric_pressure, bas_compensated_latitute, bas_confidence, bas_fix_type, bas_mid_value_secs, bas_stationary_latitute, bas_transition_1, bas_transition_2, battery_charge_percent, battery_charging_current, behavioural_classification, comments, compass_heading, deployment_id, eobs_acceleration_axes, eobs_acceleration_sampling_frequency_per_axis, eobs_accelerations_raw, eobs_activity, eobs_activity_samples, eobs_battery_voltage, eobs_fix_battery_voltage, eobs_horizontal_accuracy_estimate, eobs_key_bin_checksum, eobs_speed_accuracy_estimate, eobs_start_timestamp, eobs_status, eobs_temperature, eobs_type_of_fix, eobs_used_time_to_get_fix, event_id, event_set_id, external_temperature, flt_switch, gps_dop, gps_fix_type, gps_hdop, gps_maximum_signal_strength, gps_satellite_count, gps_time_to_fix, gps_vdop, ground_speed, gsm_mcc_mnc, gsm_signal_strength, gt_activity_count, gt_sys_week, gt_tx_count, habitat, heading, height_above_ellipsoid, height_above_msl, height_raw, individual_id, internal_temperature, light_level, location_error_numerical, location_error_percentile, location_error_text, location_lat, location_long, magnetic_field_raw_x, magnetic_field_raw_y, magnetic_field_raw_z, manually_marked_outlier, manually_marked_valid, migration_stage, migration_stage_standard, modelled, mw_activity_count, mw_show_in_kml, ornitela_transmission_protocol, proofed, raptor_workshop_behaviour, raptor_workshop_deployment_special_event, raptor_workshop_migration_state, sensor_type_id, study_id, study_specific_measurement, tag_battery_voltage, tag_id, tag_tech_spec, tag_voltage, technosmart_activity, technosmart_signal_quality, tilt_angle, tilt_x, tilt_y, tilt_z, timestamp, transmission_timestamp, underwater_count, underwater_time, vertical_error_numerical, visible, waterbird_workshop_behaviour, waterbird_workshop_deployment_special_event, waterbird_workshop_migration_state
 
 > by default only core columns are returned
+> 
 > `https://www.movebank.org/movebank/service/direct-read?entity_type=event&study_id=2911040`
+> 
 > to add more attributes, need to know what are available first. use `study_attribute` to find out.
 
 
@@ -51,6 +54,7 @@ Output attributes: access_profile_id, comments, death_comments, default_profile_
 Filter attributes: access_profile_id, comments, death_comments, default_profile_eventdata_id, earliest_date_born, exact_date_of_birth, external_id, external_id_namespace_id, i_am_owner, id, latest_date_born, local_identifier, ring_id, sex, study_id, taxon_canonical_name, taxon_id
 
 > example. The `id` - `local_identifier` information could be important
+> 
 > `https://www.movebank.org/movebank/service/direct-read?entity_type=individual&study_id=1764627`
 
 ```
@@ -69,6 +73,7 @@ Output attributes: external_id, external_id_namespace_id, id, manufacturer_name,
 Filter attributes: external_id, external_id_namespace_id, id, manufacturer_name, model, sensor_type_id, tag_id, tag_study_id
 
 > note you need to specify the study with **tag_study_id** instead of `study_id`
+> 
 > `https://www.movebank.org/movebank/service/direct-read?entity_type=sensor&tag_study_id=1764627`
 
 ```
@@ -97,6 +102,7 @@ Filter attributes: data_type, sensor_type_id, short_name, study_id
 Example query string: ?entity-type=individual&study=80355,80725&attributes=id,local-identifier,taxon
 
 > Need `study_id` and `sensor_type_id` in call. Get `sensor_type_id` from `sensor` call.
+> 
 > `https://www.movebank.org/movebank/service/direct-read?entity_type=study_attribute&study_id=1764627&sensor_type_id=653`
 
 ```
@@ -116,6 +122,7 @@ Output attributes: access_profile_id, beacon_frequency, comments, external_id, e
 Filter attributes: access_profile_id, beacon_frequency, comments, external_id, external_id_namespace_id, i_am_owner, id, local_identifier, manufacturer_name, model, processing_type, serial_no, study_id, tag_failure_comments, tag_production_date, tag_type_id, weight
 
 > We need `study_id` here.
+> 
 > `https://www.movebank.org/movebank/service/direct-read?entity_type=tag&study_id=1764627`
 
 ```
@@ -135,6 +142,7 @@ Output attributes: description, external_id, external_id_namespace_id, id, is_lo
 Filter attributes: description, external_id, external_id_namespace_id, id, is_location_sensor, name
 
 > Many data download will use the sensor id in data, so you will need the table from this inquiry to map the id to sensor name, types etc.
+> 
 > `https://www.movebank.org/movebank/service/direct-read?entity_type=tag_type`
 
 ```
@@ -158,6 +166,7 @@ Output attributes: author_string, canonical_name, external_id, external_id_names
 Filter attributes: author_string, canonical_name, external_id, external_id_namespace_id, hierarchy_string, id, name_1, name_2, name_3, parent_taxon_id, valid
 
 > This will return a 8M table of all taxon names
+> 
 > `https://www.movebank.org/movebank/service/direct-read?entity_type=taxon`
 
 ```
