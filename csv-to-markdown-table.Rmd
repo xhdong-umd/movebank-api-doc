@@ -1,0 +1,31 @@
+---
+title: "convert csv to markdown table"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Intro
+
+This code is used to convert csv formated data into markdown table. There are websites and numerous tools providing similar service, but the websites I tried didn't recognize quote correctly. Using R will have more control over the format, and the clipboard intergration make the workflow smoother.
+
+```{r libraries}
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(knitr, data.table, clipr)
+```
+
+To use the code, first run the libraries code chunk, then copy the csv data into clipboard, run the code chunk below, the converted markdown table will be put into clipboard.
+
+```{r code}
+# clipr can read clipboard in windows/mac/linux
+lines <- read_clip()
+paste0(lines, collapse = "\n")
+# getting regular data frame so we can use the matrix indexing in next line
+df <- fread(paste0(lines, collapse = "\n"), na.strings = NULL, data.table = FALSE)
+# we don't want to print NA in table since the actual data don't have NA returned
+df[is.na(df)] <- ""
+write_clip(kable(df, format = "markdown"))
+```
+
