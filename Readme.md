@@ -17,7 +17,8 @@ With documentation in markdown format, it will be much eaiser to manage with ver
     I found this is very helpful in development and testing.
 
 - I strong recommend to use [postman](https://www.getpostman.com/) for web API development.
-    + You can save your user name and password in environment, then use them in any API call easily
+    + You can save your user name and password in environment, then use them in any API call easily.
+    For example, click the gear icon in right top corner, manage environments, globals, add `user` and `pass`, then add authorization in API call: Basic Auth, user name: {{user}}, password: {{pass}}.
   ![postman 1](postman/postman1.png?raw=true)
     + You can save your API call into a collection, edit API call parameters easily, check API call response header, results with different viewing modes.
   ![postman 2](postman/postman2.png?raw=true)
