@@ -41,5 +41,6 @@ With documentation in markdown format, it will be much eaiser to manage with ver
   ![postman 1](postman/postman1.png?raw=true)
     + You can save your API call into a collection, edit API call parameters easily, check API call response header, results with different viewing modes.
   ![postman 2](postman/postman2.png?raw=true)
+    + When using postman with a long list of attributes, the spaces after comma may cause problem. So instead of `id, local_identifier, taxon_id`, use `id,local_identifier,taxon_id`.
 
 - I have uploaded my postman collection of some API calls in `postman` folder. However due to [a design flaw of postman](https://github.com/postmanlabs/postman-app-support/issues/1463), the basic auth header will be saved in exported postman collection which will expose user name and password. So I have to set all API calls as `no auth`, replace the header value in exported json. After importing this collection to postman, you need to set your own environment, then add the basic auth for API calls by yourself.
