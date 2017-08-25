@@ -1,0 +1,868 @@
+{
+	"variables": [],
+	"info": {
+		"name": "movebank shared no auth 18 requests",
+		"_postman_id": "5822083a-4a93-0999-bbc1-ef3304495021",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Get a list of attribute names",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "{{user}}",
+						"password": "{{pass}}",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://www.movebank.org/movebank/service/direct-read?attributes",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic ",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "attributes can be used later"
+			},
+			"response": [
+				{
+					"id": "58d8a578-6734-4598-b1e7-0494306c185f",
+					"name": "attributes",
+					"originalRequest": {
+						"url": "https://www.movebank.org/movebank/service/direct-read?attributes",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"name": "Authorization",
+								"value": "Basic"
+							}
+						],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"name": "Connection",
+							"description": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain",
+							"name": "Content-Type",
+							"description": ""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 07 Feb 2017 20:41:47 GMT",
+							"name": "Date",
+							"description": ""
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=15, max=100",
+							"name": "Keep-Alive",
+							"description": ""
+						},
+						{
+							"key": "Server",
+							"value": "Apache-Coyote/1.1",
+							"name": "Server",
+							"description": ""
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "JSESSIONID=A475A7CEC31A03BAF3438C467A06B271; Path=/movebank",
+							"name": "Set-Cookie",
+							"description": ""
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": ""
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Tue Jan 19 2038 03:14:07 GMT-0500 (EST)",
+							"httpOnly": false,
+							"domain": "www.movebank.org",
+							"path": "/movebank",
+							"secure": false,
+							"value": "A475A7CEC31A03BAF3438C467A06B271",
+							"key": "JSESSIONID"
+						}
+					],
+					"responseTime": "486",
+					"body": "Specify one of the following entity types: deployment, event, individual, sensor, study, study_attribute, tag, tag_type, taxon\r\nOptional parameter: header-format=underscore\r\nWhen connecting via https you must specify the parameters user=... and password=...\r\nSpecify output attributes and filter conditions depending on the entity type.\r\n\r\nentity-type=study\r\nOutput attributes: access_profile_download_id, access_profile_id, acknowledgements, bounding_box, citation, comments, contact_person_id, default_profile_eventdata_id, default_profile_refdata_id, external_id, external_id_namespace_id, grants_used, has_quota, i_am_owner, i_can_see_data, id, license_terms, location_description, main_location_lat, main_location_long, name, number_of_deployments, number_of_events, number_of_individuals, number_of_tags, principal_investigator_address, principal_investigator_email, principal_investigator_id, principal_investigator_name, study_id, study_objective, study_type, suspend_license_terms, there_are_data_which_i_cannot_see, timestamp_end, timestamp_start\r\nFilter attributes: access_profile_download_id, access_profile_id, acknowledgements, bounding_box, citation, comments, contact_person_id, default_profile_eventdata_id, default_profile_refdata_id, external_id, external_id_namespace_id, grants_used, has_quota, i_am_owner, id, license_terms, location_description, main_location_lat, main_location_long, name, number_of_deployments, number_of_events, number_of_individuals, number_of_tags, principal_investigator_address, principal_investigator_email, principal_investigator_id, principal_investigator_name, study_id, study_objective, study_type, suspend_license_terms, timestamp_end, timestamp_start\r\n\r\nentity-type=individual\r\nOutput attributes: access_profile_id, comments, death_comments, default_profile_eventdata_id, earliest_date_born, exact_date_of_birth, external_id, external_id_namespace_id, i_am_owner, id, latest_date_born, local_identifier, ring_id, sex, study_id, taxon_canonical_name, taxon_id\r\nFilter attributes: access_profile_id, comments, death_comments, default_profile_eventdata_id, earliest_date_born, exact_date_of_birth, external_id, external_id_namespace_id, i_am_owner, id, latest_date_born, local_identifier, ring_id, sex, study_id, taxon_canonical_name, taxon_id\r\n\r\nentity-type=tag\r\nOutput attributes: access_profile_id, beacon_frequency, comments, external_id, external_id_namespace_id, i_am_owner, id, local_identifier, manufacturer_name, model, processing_type, serial_no, study_id, tag_failure_comments, tag_production_date, tag_type_id, weight\r\nFilter attributes: access_profile_id, beacon_frequency, comments, external_id, external_id_namespace_id, i_am_owner, id, local_identifier, manufacturer_name, model, processing_type, serial_no, study_id, tag_failure_comments, tag_production_date, tag_type_id, weight\r\n\r\nentity-type=sensor\r\nOutput attributes: external_id, external_id_namespace_id, id, manufacturer_name, model, sensor_type_id, tag_id, tag_study_id\r\nFilter attributes: external_id, external_id_namespace_id, id, manufacturer_name, model, sensor_type_id, tag_id, tag_study_id\r\n\r\nentity-type=tag_type\r\nOutput attributes: description, external_id, external_id_namespace_id, id, is_location_sensor, name\r\nFilter attributes: description, external_id, external_id_namespace_id, id, is_location_sensor, name\r\n\r\nentity-type=taxon\r\nOutput attributes: author_string, canonical_name, external_id, external_id_namespace_id, hierarchy_string, id, name_1, name_2, name_3, parent_taxon_id, valid\r\nFilter attributes: author_string, canonical_name, external_id, external_id_namespace_id, hierarchy_string, id, name_1, name_2, name_3, parent_taxon_id, valid\r\n\r\nentity-type=deployment\r\nOutput attributes: access_profile_id, animal_life_stage, animal_mass, animal_reproductive_condition, attachment_type, behavior_according_to, comments, data_processing_software, deploy_off_latitude, deploy_off_longitude, deploy_off_person, deploy_off_timestamp, deploy_on_latitude, deploy_on_longitude, deploy_on_person, deploy_on_timestamp, deployment_end_comments, deployment_end_type, duty_cycle, external_id, external_id_namespace_id, geolocator_calibration, geolocator_light_threshold, geolocator_sensor_comments, geolocator_sun_elevation_angle, habitat_according_to, i_am_owner, id, individual_id, local_identifier, location_accuracy_comments, manipulation_comments, manipulation_type, partial_identifier, study_id, study_site, tag_id, tag_readout_method\r\nFilter attributes: access_profile_id, animal_life_stage, animal_mass, animal_reproductive_condition, attachment_type, behavior_according_to, comments, data_processing_software, deploy_off_latitude, deploy_off_longitude, deploy_off_person, deploy_off_timestamp, deploy_on_latitude, deploy_on_longitude, deploy_on_person, deploy_on_timestamp, deployment_end_comments, deployment_end_type, duty_cycle, external_id, external_id_namespace_id, geolocator_calibration, geolocator_light_threshold, geolocator_sensor_comments, geolocator_sun_elevation_angle, habitat_according_to, i_am_owner, id, individual_id, local_identifier, location_accuracy_comments, manipulation_comments, manipulation_type, partial_identifier, study_id, study_site, tag_id, tag_readout_method\r\n\r\nentity-type=event\r\nOutput attributes: acceleration_axes, acceleration_raw_x, acceleration_raw_y, acceleration_raw_z, acceleration_sampling_frequency_per_axis, acceleration_x, acceleration_y, acceleration_z, accelerations_raw, activity_count, activity_count, algorithm_marked_outlier, argos_altitude, argos_best_level, argos_calcul_freq, argos_error_radius, argos_gdop, argos_iq, argos_lat1, argos_lat2, argos_lc, argos_lon1, argos_lon2, argos_nb_mes, argos_nb_mes_120, argos_nb_mes_identical, argos_nopc, argos_orientation, argos_pass_duration, argos_sat_id, argos_semi_major, argos_semi_minor, argos_sensor_1, argos_sensor_2, argos_sensor_3, argos_sensor_4, argos_transmission_timestamp, argos_valid_location_algorithm, argos_valid_location_manual, barometric_depth, barometric_height, barometric_pressure, bas_compensated_latitute, bas_confidence, bas_fix_type, bas_mid_value_secs, bas_stationary_latitute, bas_transition_1, bas_transition_2, battery_charge_percent, battery_charging_current, behavioural_classification, comments, compass_heading, deployment_id, eobs_acceleration_axes, eobs_acceleration_sampling_frequency_per_axis, eobs_accelerations_raw, eobs_activity, eobs_activity_samples, eobs_battery_voltage, eobs_fix_battery_voltage, eobs_horizontal_accuracy_estimate, eobs_key_bin_checksum, eobs_speed_accuracy_estimate, eobs_start_timestamp, eobs_status, eobs_temperature, eobs_type_of_fix, eobs_used_time_to_get_fix, event_id, event_set_id, external_temperature, flt_switch, gps_dop, gps_fix_type, gps_hdop, gps_maximum_signal_strength, gps_satellite_count, gps_time_to_fix, gps_vdop, ground_speed, gsm_mcc_mnc, gsm_signal_strength, gt_activity_count, gt_sys_week, gt_tx_count, habitat, heading, height_above_ellipsoid, height_above_msl, height_raw, individual_id, internal_temperature, light_level, location_error_numerical, location_error_percentile, location_error_text, location_lat, location_long, magnetic_field_raw_x, magnetic_field_raw_y, magnetic_field_raw_z, manually_marked_outlier, manually_marked_valid, migration_stage, migration_stage_standard, modelled, mw_activity_count, mw_show_in_kml, ornitela_transmission_protocol, proofed, raptor_workshop_behaviour, raptor_workshop_deployment_special_event, raptor_workshop_migration_state, sensor_type_id, study_id, study_specific_measurement, tag_battery_voltage, tag_id, tag_tech_spec, tag_voltage, technosmart_activity, technosmart_signal_quality, tilt_angle, tilt_x, tilt_y, tilt_z, timestamp, transmission_timestamp, underwater_count, underwater_time, vertical_error_numerical, visible, waterbird_workshop_behaviour, waterbird_workshop_deployment_special_event, waterbird_workshop_migration_state\r\nFilter attributes: acceleration_axes, acceleration_raw_x, acceleration_raw_y, acceleration_raw_z, acceleration_sampling_frequency_per_axis, acceleration_x, acceleration_y, acceleration_z, accelerations_raw, activity_count, activity_count, algorithm_marked_outlier, argos_altitude, argos_best_level, argos_calcul_freq, argos_error_radius, argos_gdop, argos_iq, argos_lat1, argos_lat2, argos_lc, argos_lon1, argos_lon2, argos_nb_mes, argos_nb_mes_120, argos_nb_mes_identical, argos_nopc, argos_orientation, argos_pass_duration, argos_sat_id, argos_semi_major, argos_semi_minor, argos_sensor_1, argos_sensor_2, argos_sensor_3, argos_sensor_4, argos_transmission_timestamp, argos_valid_location_algorithm, argos_valid_location_manual, barometric_depth, barometric_height, barometric_pressure, bas_compensated_latitute, bas_confidence, bas_fix_type, bas_mid_value_secs, bas_stationary_latitute, bas_transition_1, bas_transition_2, battery_charge_percent, battery_charging_current, behavioural_classification, comments, compass_heading, deployment_id, eobs_acceleration_axes, eobs_acceleration_sampling_frequency_per_axis, eobs_accelerations_raw, eobs_activity, eobs_activity_samples, eobs_battery_voltage, eobs_fix_battery_voltage, eobs_horizontal_accuracy_estimate, eobs_key_bin_checksum, eobs_speed_accuracy_estimate, eobs_start_timestamp, eobs_status, eobs_temperature, eobs_type_of_fix, eobs_used_time_to_get_fix, event_id, event_set_id, external_temperature, flt_switch, gps_dop, gps_fix_type, gps_hdop, gps_maximum_signal_strength, gps_satellite_count, gps_time_to_fix, gps_vdop, ground_speed, gsm_mcc_mnc, gsm_signal_strength, gt_activity_count, gt_sys_week, gt_tx_count, habitat, heading, height_above_ellipsoid, height_above_msl, height_raw, individual_id, internal_temperature, light_level, location_error_numerical, location_error_percentile, location_error_text, location_lat, location_long, magnetic_field_raw_x, magnetic_field_raw_y, magnetic_field_raw_z, manually_marked_outlier, manually_marked_valid, migration_stage, migration_stage_standard, modelled, mw_activity_count, mw_show_in_kml, ornitela_transmission_protocol, proofed, raptor_workshop_behaviour, raptor_workshop_deployment_special_event, raptor_workshop_migration_state, sensor_type_id, study_id, study_specific_measurement, tag_battery_voltage, tag_id, tag_tech_spec, tag_voltage, technosmart_activity, technosmart_signal_quality, tilt_angle, tilt_x, tilt_y, tilt_z, timestamp, transmission_timestamp, underwater_count, underwater_time, vertical_error_numerical, visible, waterbird_workshop_behaviour, waterbird_workshop_deployment_special_event, waterbird_workshop_migration_state\r\n\r\nentity-type=study_attribute\r\nOutput attributes: data_type, sensor_type_id, short_name, study_id\r\nFilter attributes: data_type, sensor_type_id, short_name, study_id\r\n\r\nExample query string: ?entity-type=individual&study=80355,80725&attributes=id,local-identifier,taxon\r\n"
+				},
+				{
+					"id": "51cc4f10-85f0-4878-80d1-08ab252239fc",
+					"name": "attributes",
+					"originalRequest": {
+						"url": "https://www.movebank.org/movebank/service/direct-read?attributes",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"name": "Authorization",
+								"value": "Basic"
+							}
+						],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"name": "Connection",
+							"description": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain",
+							"name": "Content-Type",
+							"description": ""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 07 Feb 2017 20:41:47 GMT",
+							"name": "Date",
+							"description": ""
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=15, max=100",
+							"name": "Keep-Alive",
+							"description": ""
+						},
+						{
+							"key": "Server",
+							"value": "Apache-Coyote/1.1",
+							"name": "Server",
+							"description": ""
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "JSESSIONID=A475A7CEC31A03BAF3438C467A06B271; Path=/movebank",
+							"name": "Set-Cookie",
+							"description": ""
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": ""
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Tue Jan 19 2038 03:14:07 GMT-0500 (EST)",
+							"httpOnly": false,
+							"domain": "www.movebank.org",
+							"path": "/movebank",
+							"secure": false,
+							"value": "A475A7CEC31A03BAF3438C467A06B271",
+							"key": "JSESSIONID"
+						}
+					],
+					"responseTime": "486",
+					"body": "Specify one of the following entity types: deployment, event, individual, sensor, study, study_attribute, tag, tag_type, taxon\r\nOptional parameter: header-format=underscore\r\nWhen connecting via https you must specify the parameters user=... and password=...\r\nSpecify output attributes and filter conditions depending on the entity type.\r\n\r\nentity-type=study\r\nOutput attributes: access_profile_download_id, access_profile_id, acknowledgements, bounding_box, citation, comments, contact_person_id, default_profile_eventdata_id, default_profile_refdata_id, external_id, external_id_namespace_id, grants_used, has_quota, i_am_owner, i_can_see_data, id, license_terms, location_description, main_location_lat, main_location_long, name, number_of_deployments, number_of_events, number_of_individuals, number_of_tags, principal_investigator_address, principal_investigator_email, principal_investigator_id, principal_investigator_name, study_id, study_objective, study_type, suspend_license_terms, there_are_data_which_i_cannot_see, timestamp_end, timestamp_start\r\nFilter attributes: access_profile_download_id, access_profile_id, acknowledgements, bounding_box, citation, comments, contact_person_id, default_profile_eventdata_id, default_profile_refdata_id, external_id, external_id_namespace_id, grants_used, has_quota, i_am_owner, id, license_terms, location_description, main_location_lat, main_location_long, name, number_of_deployments, number_of_events, number_of_individuals, number_of_tags, principal_investigator_address, principal_investigator_email, principal_investigator_id, principal_investigator_name, study_id, study_objective, study_type, suspend_license_terms, timestamp_end, timestamp_start\r\n\r\nentity-type=individual\r\nOutput attributes: access_profile_id, comments, death_comments, default_profile_eventdata_id, earliest_date_born, exact_date_of_birth, external_id, external_id_namespace_id, i_am_owner, id, latest_date_born, local_identifier, ring_id, sex, study_id, taxon_canonical_name, taxon_id\r\nFilter attributes: access_profile_id, comments, death_comments, default_profile_eventdata_id, earliest_date_born, exact_date_of_birth, external_id, external_id_namespace_id, i_am_owner, id, latest_date_born, local_identifier, ring_id, sex, study_id, taxon_canonical_name, taxon_id\r\n\r\nentity-type=tag\r\nOutput attributes: access_profile_id, beacon_frequency, comments, external_id, external_id_namespace_id, i_am_owner, id, local_identifier, manufacturer_name, model, processing_type, serial_no, study_id, tag_failure_comments, tag_production_date, tag_type_id, weight\r\nFilter attributes: access_profile_id, beacon_frequency, comments, external_id, external_id_namespace_id, i_am_owner, id, local_identifier, manufacturer_name, model, processing_type, serial_no, study_id, tag_failure_comments, tag_production_date, tag_type_id, weight\r\n\r\nentity-type=sensor\r\nOutput attributes: external_id, external_id_namespace_id, id, manufacturer_name, model, sensor_type_id, tag_id, tag_study_id\r\nFilter attributes: external_id, external_id_namespace_id, id, manufacturer_name, model, sensor_type_id, tag_id, tag_study_id\r\n\r\nentity-type=tag_type\r\nOutput attributes: description, external_id, external_id_namespace_id, id, is_location_sensor, name\r\nFilter attributes: description, external_id, external_id_namespace_id, id, is_location_sensor, name\r\n\r\nentity-type=taxon\r\nOutput attributes: author_string, canonical_name, external_id, external_id_namespace_id, hierarchy_string, id, name_1, name_2, name_3, parent_taxon_id, valid\r\nFilter attributes: author_string, canonical_name, external_id, external_id_namespace_id, hierarchy_string, id, name_1, name_2, name_3, parent_taxon_id, valid\r\n\r\nentity-type=deployment\r\nOutput attributes: access_profile_id, animal_life_stage, animal_mass, animal_reproductive_condition, attachment_type, behavior_according_to, comments, data_processing_software, deploy_off_latitude, deploy_off_longitude, deploy_off_person, deploy_off_timestamp, deploy_on_latitude, deploy_on_longitude, deploy_on_person, deploy_on_timestamp, deployment_end_comments, deployment_end_type, duty_cycle, external_id, external_id_namespace_id, geolocator_calibration, geolocator_light_threshold, geolocator_sensor_comments, geolocator_sun_elevation_angle, habitat_according_to, i_am_owner, id, individual_id, local_identifier, location_accuracy_comments, manipulation_comments, manipulation_type, partial_identifier, study_id, study_site, tag_id, tag_readout_method\r\nFilter attributes: access_profile_id, animal_life_stage, animal_mass, animal_reproductive_condition, attachment_type, behavior_according_to, comments, data_processing_software, deploy_off_latitude, deploy_off_longitude, deploy_off_person, deploy_off_timestamp, deploy_on_latitude, deploy_on_longitude, deploy_on_person, deploy_on_timestamp, deployment_end_comments, deployment_end_type, duty_cycle, external_id, external_id_namespace_id, geolocator_calibration, geolocator_light_threshold, geolocator_sensor_comments, geolocator_sun_elevation_angle, habitat_according_to, i_am_owner, id, individual_id, local_identifier, location_accuracy_comments, manipulation_comments, manipulation_type, partial_identifier, study_id, study_site, tag_id, tag_readout_method\r\n\r\nentity-type=event\r\nOutput attributes: acceleration_axes, acceleration_raw_x, acceleration_raw_y, acceleration_raw_z, acceleration_sampling_frequency_per_axis, acceleration_x, acceleration_y, acceleration_z, accelerations_raw, activity_count, activity_count, algorithm_marked_outlier, argos_altitude, argos_best_level, argos_calcul_freq, argos_error_radius, argos_gdop, argos_iq, argos_lat1, argos_lat2, argos_lc, argos_lon1, argos_lon2, argos_nb_mes, argos_nb_mes_120, argos_nb_mes_identical, argos_nopc, argos_orientation, argos_pass_duration, argos_sat_id, argos_semi_major, argos_semi_minor, argos_sensor_1, argos_sensor_2, argos_sensor_3, argos_sensor_4, argos_transmission_timestamp, argos_valid_location_algorithm, argos_valid_location_manual, barometric_depth, barometric_height, barometric_pressure, bas_compensated_latitute, bas_confidence, bas_fix_type, bas_mid_value_secs, bas_stationary_latitute, bas_transition_1, bas_transition_2, battery_charge_percent, battery_charging_current, behavioural_classification, comments, compass_heading, deployment_id, eobs_acceleration_axes, eobs_acceleration_sampling_frequency_per_axis, eobs_accelerations_raw, eobs_activity, eobs_activity_samples, eobs_battery_voltage, eobs_fix_battery_voltage, eobs_horizontal_accuracy_estimate, eobs_key_bin_checksum, eobs_speed_accuracy_estimate, eobs_start_timestamp, eobs_status, eobs_temperature, eobs_type_of_fix, eobs_used_time_to_get_fix, event_id, event_set_id, external_temperature, flt_switch, gps_dop, gps_fix_type, gps_hdop, gps_maximum_signal_strength, gps_satellite_count, gps_time_to_fix, gps_vdop, ground_speed, gsm_mcc_mnc, gsm_signal_strength, gt_activity_count, gt_sys_week, gt_tx_count, habitat, heading, height_above_ellipsoid, height_above_msl, height_raw, individual_id, internal_temperature, light_level, location_error_numerical, location_error_percentile, location_error_text, location_lat, location_long, magnetic_field_raw_x, magnetic_field_raw_y, magnetic_field_raw_z, manually_marked_outlier, manually_marked_valid, migration_stage, migration_stage_standard, modelled, mw_activity_count, mw_show_in_kml, ornitela_transmission_protocol, proofed, raptor_workshop_behaviour, raptor_workshop_deployment_special_event, raptor_workshop_migration_state, sensor_type_id, study_id, study_specific_measurement, tag_battery_voltage, tag_id, tag_tech_spec, tag_voltage, technosmart_activity, technosmart_signal_quality, tilt_angle, tilt_x, tilt_y, tilt_z, timestamp, transmission_timestamp, underwater_count, underwater_time, vertical_error_numerical, visible, waterbird_workshop_behaviour, waterbird_workshop_deployment_special_event, waterbird_workshop_migration_state\r\nFilter attributes: acceleration_axes, acceleration_raw_x, acceleration_raw_y, acceleration_raw_z, acceleration_sampling_frequency_per_axis, acceleration_x, acceleration_y, acceleration_z, accelerations_raw, activity_count, activity_count, algorithm_marked_outlier, argos_altitude, argos_best_level, argos_calcul_freq, argos_error_radius, argos_gdop, argos_iq, argos_lat1, argos_lat2, argos_lc, argos_lon1, argos_lon2, argos_nb_mes, argos_nb_mes_120, argos_nb_mes_identical, argos_nopc, argos_orientation, argos_pass_duration, argos_sat_id, argos_semi_major, argos_semi_minor, argos_sensor_1, argos_sensor_2, argos_sensor_3, argos_sensor_4, argos_transmission_timestamp, argos_valid_location_algorithm, argos_valid_location_manual, barometric_depth, barometric_height, barometric_pressure, bas_compensated_latitute, bas_confidence, bas_fix_type, bas_mid_value_secs, bas_stationary_latitute, bas_transition_1, bas_transition_2, battery_charge_percent, battery_charging_current, behavioural_classification, comments, compass_heading, deployment_id, eobs_acceleration_axes, eobs_acceleration_sampling_frequency_per_axis, eobs_accelerations_raw, eobs_activity, eobs_activity_samples, eobs_battery_voltage, eobs_fix_battery_voltage, eobs_horizontal_accuracy_estimate, eobs_key_bin_checksum, eobs_speed_accuracy_estimate, eobs_start_timestamp, eobs_status, eobs_temperature, eobs_type_of_fix, eobs_used_time_to_get_fix, event_id, event_set_id, external_temperature, flt_switch, gps_dop, gps_fix_type, gps_hdop, gps_maximum_signal_strength, gps_satellite_count, gps_time_to_fix, gps_vdop, ground_speed, gsm_mcc_mnc, gsm_signal_strength, gt_activity_count, gt_sys_week, gt_tx_count, habitat, heading, height_above_ellipsoid, height_above_msl, height_raw, individual_id, internal_temperature, light_level, location_error_numerical, location_error_percentile, location_error_text, location_lat, location_long, magnetic_field_raw_x, magnetic_field_raw_y, magnetic_field_raw_z, manually_marked_outlier, manually_marked_valid, migration_stage, migration_stage_standard, modelled, mw_activity_count, mw_show_in_kml, ornitela_transmission_protocol, proofed, raptor_workshop_behaviour, raptor_workshop_deployment_special_event, raptor_workshop_migration_state, sensor_type_id, study_id, study_specific_measurement, tag_battery_voltage, tag_id, tag_tech_spec, tag_voltage, technosmart_activity, technosmart_signal_quality, tilt_angle, tilt_x, tilt_y, tilt_z, timestamp, transmission_timestamp, underwater_count, underwater_time, vertical_error_numerical, visible, waterbird_workshop_behaviour, waterbird_workshop_deployment_special_event, waterbird_workshop_migration_state\r\n\r\nentity-type=study_attribute\r\nOutput attributes: data_type, sensor_type_id, short_name, study_id\r\nFilter attributes: data_type, sensor_type_id, short_name, study_id\r\n\r\nExample query string: ?entity-type=individual&study=80355,80725&attributes=id,local-identifier,taxon\r\n"
+				},
+				{
+					"id": "96947106-7bed-4d74-a719-afec6077f0e7",
+					"name": "all attributes",
+					"originalRequest": {
+						"url": "https://www.movebank.org/movebank/service/direct-read?attributes",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"name": "Authorization",
+								"value": "Basic",
+								"disabled": false
+							}
+						],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"name": "Connection",
+							"description": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain",
+							"name": "Content-Type",
+							"description": ""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2017 16:44:29 GMT",
+							"name": "Date",
+							"description": ""
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=15, max=100",
+							"name": "Keep-Alive",
+							"description": ""
+						},
+						{
+							"key": "Server",
+							"value": "Apache-Coyote/1.1",
+							"name": "Server",
+							"description": ""
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "JSESSIONID=35B0B5FC3674F0B13189F8D0358CDE71; Path=/movebank",
+							"name": "Set-Cookie",
+							"description": ""
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": ""
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Tue Jan 19 2038 03:14:07 GMT-0500 (EST)",
+							"httpOnly": false,
+							"domain": "www.movebank.org",
+							"path": "/movebank",
+							"secure": false,
+							"value": "35B0B5FC3674F0B13189F8D0358CDE71",
+							"key": "JSESSIONID"
+						}
+					],
+					"responseTime": "752",
+					"body": "Specify one of the following entity types: deployment, event, individual, sensor, study, study_attribute, tag, tag_type, taxon\r\nOptional parameter: header-format=underscore\r\nWhen connecting via https you must specify the parameters user=... and password=...\r\nSpecify output attributes and filter conditions depending on the entity type.\r\n\r\nentity-type=study\r\nOutput attributes: access_profile_download_id, access_profile_id, acknowledgements, bounding_box, citation, comments, contact_person_id, default_profile_eventdata_id, default_profile_refdata_id, external_id, external_id_namespace_id, grants_used, has_quota, i_am_owner, i_can_see_data, id, license_terms, location_description, main_location_lat, main_location_long, name, number_of_deployments, number_of_events, number_of_individuals, number_of_tags, principal_investigator_address, principal_investigator_email, principal_investigator_id, principal_investigator_name, study_id, study_objective, study_type, suspend_license_terms, there_are_data_which_i_cannot_see, timestamp_end, timestamp_start\r\nFilter attributes: access_profile_download_id, access_profile_id, acknowledgements, bounding_box, citation, comments, contact_person_id, default_profile_eventdata_id, default_profile_refdata_id, external_id, external_id_namespace_id, grants_used, has_quota, i_am_owner, id, license_terms, location_description, main_location_lat, main_location_long, name, number_of_deployments, number_of_events, number_of_individuals, number_of_tags, principal_investigator_address, principal_investigator_email, principal_investigator_id, principal_investigator_name, study_id, study_objective, study_type, suspend_license_terms, timestamp_end, timestamp_start\r\n\r\nentity-type=individual\r\nOutput attributes: access_profile_id, comments, death_comments, default_profile_eventdata_id, earliest_date_born, exact_date_of_birth, external_id, external_id_namespace_id, i_am_owner, id, latest_date_born, local_identifier, ring_id, sex, study_id, taxon_canonical_name, taxon_id\r\nFilter attributes: access_profile_id, comments, death_comments, default_profile_eventdata_id, earliest_date_born, exact_date_of_birth, external_id, external_id_namespace_id, i_am_owner, id, latest_date_born, local_identifier, ring_id, sex, study_id, taxon_canonical_name, taxon_id\r\n\r\nentity-type=tag\r\nOutput attributes: access_profile_id, beacon_frequency, comments, external_id, external_id_namespace_id, i_am_owner, id, local_identifier, manufacturer_name, model, processing_type, serial_no, study_id, tag_failure_comments, tag_production_date, tag_type_id, weight\r\nFilter attributes: access_profile_id, beacon_frequency, comments, external_id, external_id_namespace_id, i_am_owner, id, local_identifier, manufacturer_name, model, processing_type, serial_no, study_id, tag_failure_comments, tag_production_date, tag_type_id, weight\r\n\r\nentity-type=sensor\r\nOutput attributes: external_id, external_id_namespace_id, id, manufacturer_name, model, sensor_type_id, tag_id, tag_study_id\r\nFilter attributes: external_id, external_id_namespace_id, id, manufacturer_name, model, sensor_type_id, tag_id, tag_study_id\r\n\r\nentity-type=tag_type\r\nOutput attributes: description, external_id, external_id_namespace_id, id, is_location_sensor, name\r\nFilter attributes: description, external_id, external_id_namespace_id, id, is_location_sensor, name\r\n\r\nentity-type=taxon\r\nOutput attributes: author_string, canonical_name, external_id, external_id_namespace_id, hierarchy_string, id, name_1, name_2, name_3, parent_taxon_id, valid\r\nFilter attributes: author_string, canonical_name, external_id, external_id_namespace_id, hierarchy_string, id, name_1, name_2, name_3, parent_taxon_id, valid\r\n\r\nentity-type=deployment\r\nOutput attributes: access_profile_id, animal_life_stage, animal_mass, animal_reproductive_condition, attachment_type, behavior_according_to, comments, data_processing_software, deploy_off_latitude, deploy_off_longitude, deploy_off_person, deploy_off_timestamp, deploy_on_latitude, deploy_on_longitude, deploy_on_person, deploy_on_timestamp, deployment_end_comments, deployment_end_type, duty_cycle, external_id, external_id_namespace_id, geolocator_calibration, geolocator_light_threshold, geolocator_sensor_comments, geolocator_sun_elevation_angle, habitat_according_to, i_am_owner, id, individual_id, local_identifier, location_accuracy_comments, manipulation_comments, manipulation_type, partial_identifier, study_id, study_site, tag_id, tag_readout_method\r\nFilter attributes: access_profile_id, animal_life_stage, animal_mass, animal_reproductive_condition, attachment_type, behavior_according_to, comments, data_processing_software, deploy_off_latitude, deploy_off_longitude, deploy_off_person, deploy_off_timestamp, deploy_on_latitude, deploy_on_longitude, deploy_on_person, deploy_on_timestamp, deployment_end_comments, deployment_end_type, duty_cycle, external_id, external_id_namespace_id, geolocator_calibration, geolocator_light_threshold, geolocator_sensor_comments, geolocator_sun_elevation_angle, habitat_according_to, i_am_owner, id, individual_id, local_identifier, location_accuracy_comments, manipulation_comments, manipulation_type, partial_identifier, study_id, study_site, tag_id, tag_readout_method\r\n\r\nentity-type=event\r\nOutput attributes: acceleration_axes, acceleration_raw_x, acceleration_raw_y, acceleration_raw_z, acceleration_sampling_frequency_per_axis, acceleration_x, acceleration_y, acceleration_z, accelerations_raw, activity_count, activity_count, algorithm_marked_outlier, argos_altitude, argos_best_level, argos_calcul_freq, argos_error_radius, argos_gdop, argos_iq, argos_lat1, argos_lat2, argos_lc, argos_lon1, argos_lon2, argos_nb_mes, argos_nb_mes_120, argos_nb_mes_identical, argos_nopc, argos_orientation, argos_pass_duration, argos_sat_id, argos_semi_major, argos_semi_minor, argos_sensor_1, argos_sensor_2, argos_sensor_3, argos_sensor_4, argos_transmission_timestamp, argos_valid_location_algorithm, argos_valid_location_manual, barometric_depth, barometric_height, barometric_pressure, bas_compensated_latitute, bas_confidence, bas_fix_type, bas_mid_value_secs, bas_stationary_latitute, bas_transition_1, bas_transition_2, battery_charge_percent, battery_charging_current, behavioural_classification, comments, compass_heading, deployment_id, eobs_acceleration_axes, eobs_acceleration_sampling_frequency_per_axis, eobs_accelerations_raw, eobs_activity, eobs_activity_samples, eobs_battery_voltage, eobs_fix_battery_voltage, eobs_horizontal_accuracy_estimate, eobs_key_bin_checksum, eobs_speed_accuracy_estimate, eobs_start_timestamp, eobs_status, eobs_temperature, eobs_type_of_fix, eobs_used_time_to_get_fix, event_id, event_set_id, external_temperature, flt_switch, gps_dop, gps_fix_type, gps_hdop, gps_maximum_signal_strength, gps_satellite_count, gps_time_to_fix, gps_vdop, ground_speed, gsm_mcc_mnc, gsm_signal_strength, gt_activity_count, gt_sys_week, gt_tx_count, habitat, heading, height_above_ellipsoid, height_above_msl, height_raw, individual_id, internal_temperature, light_level, location_error_numerical, location_error_percentile, location_error_text, location_lat, location_long, magnetic_field_raw_x, magnetic_field_raw_y, magnetic_field_raw_z, manually_marked_outlier, manually_marked_valid, migration_stage, migration_stage_standard, modelled, mw_activity_count, mw_show_in_kml, ornitela_transmission_protocol, proofed, raptor_workshop_behaviour, raptor_workshop_deployment_special_event, raptor_workshop_migration_state, sensor_type_id, study_id, study_specific_measurement, tag_battery_voltage, tag_id, tag_tech_spec, tag_voltage, technosmart_activity, technosmart_signal_quality, tilt_angle, tilt_x, tilt_y, tilt_z, timestamp, transmission_timestamp, underwater_count, underwater_time, vertical_error_numerical, visible, waterbird_workshop_behaviour, waterbird_workshop_deployment_special_event, waterbird_workshop_migration_state\r\nFilter attributes: acceleration_axes, acceleration_raw_x, acceleration_raw_y, acceleration_raw_z, acceleration_sampling_frequency_per_axis, acceleration_x, acceleration_y, acceleration_z, accelerations_raw, activity_count, activity_count, algorithm_marked_outlier, argos_altitude, argos_best_level, argos_calcul_freq, argos_error_radius, argos_gdop, argos_iq, argos_lat1, argos_lat2, argos_lc, argos_lon1, argos_lon2, argos_nb_mes, argos_nb_mes_120, argos_nb_mes_identical, argos_nopc, argos_orientation, argos_pass_duration, argos_sat_id, argos_semi_major, argos_semi_minor, argos_sensor_1, argos_sensor_2, argos_sensor_3, argos_sensor_4, argos_transmission_timestamp, argos_valid_location_algorithm, argos_valid_location_manual, barometric_depth, barometric_height, barometric_pressure, bas_compensated_latitute, bas_confidence, bas_fix_type, bas_mid_value_secs, bas_stationary_latitute, bas_transition_1, bas_transition_2, battery_charge_percent, battery_charging_current, behavioural_classification, comments, compass_heading, deployment_id, eobs_acceleration_axes, eobs_acceleration_sampling_frequency_per_axis, eobs_accelerations_raw, eobs_activity, eobs_activity_samples, eobs_battery_voltage, eobs_fix_battery_voltage, eobs_horizontal_accuracy_estimate, eobs_key_bin_checksum, eobs_speed_accuracy_estimate, eobs_start_timestamp, eobs_status, eobs_temperature, eobs_type_of_fix, eobs_used_time_to_get_fix, event_id, event_set_id, external_temperature, flt_switch, gps_dop, gps_fix_type, gps_hdop, gps_maximum_signal_strength, gps_satellite_count, gps_time_to_fix, gps_vdop, ground_speed, gsm_mcc_mnc, gsm_signal_strength, gt_activity_count, gt_sys_week, gt_tx_count, habitat, heading, height_above_ellipsoid, height_above_msl, height_raw, individual_id, internal_temperature, light_level, location_error_numerical, location_error_percentile, location_error_text, location_lat, location_long, magnetic_field_raw_x, magnetic_field_raw_y, magnetic_field_raw_z, manually_marked_outlier, manually_marked_valid, migration_stage, migration_stage_standard, modelled, mw_activity_count, mw_show_in_kml, ornitela_transmission_protocol, proofed, raptor_workshop_behaviour, raptor_workshop_deployment_special_event, raptor_workshop_migration_state, sensor_type_id, study_id, study_specific_measurement, tag_battery_voltage, tag_id, tag_tech_spec, tag_voltage, technosmart_activity, technosmart_signal_quality, tilt_angle, tilt_x, tilt_y, tilt_z, timestamp, transmission_timestamp, underwater_count, underwater_time, vertical_error_numerical, visible, waterbird_workshop_behaviour, waterbird_workshop_deployment_special_event, waterbird_workshop_migration_state\r\n\r\nentity-type=study_attribute\r\nOutput attributes: data_type, sensor_type_id, short_name, study_id\r\nFilter attributes: data_type, sensor_type_id, short_name, study_id\r\n\r\nExample query string: ?entity-type=individual&study=80355,80725&attributes=id,local-identifier,taxon\r\n"
+				}
+			]
+		},
+		{
+			"name": "2.1 Get a list of sensor types",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "{{user}}",
+						"password": "{{pass}}",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://www.movebank.org/movebank/service/direct-read?entity_type=tag_type",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "2.2 Get a list of studies",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "{{user}}",
+						"password": "{{pass}}",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://www.movebank.org/movebank/service/direct-read?entity_type=study",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "3.1 Get a summary of information about the study",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "{{user}}",
+						"password": "{{pass}}",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://www.movebank.org/movebank/service/direct-read?entity_type=study&study_id=2180600",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "3.2 Get tag reference information from the study",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "{{user}}",
+						"password": "{{pass}}",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://www.movebank.org/movebank/service/direct-read?entity_type=tag&study_id=1764627",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "3.3 Get animal reference information from the study",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "{{user}}",
+						"password": "{{pass}}",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://www.movebank.org/movebank/service/direct-read?entity_type=individual&study_id=2911040",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "3.4 Get deployment reference information from the study",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "{{user}}",
+						"password": "{{pass}}",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://www.movebank.org/movebank/service/direct-read?entity_type=deployment&study_id=2911040",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "4. Get event data from the study",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "{{user}}",
+						"password": "{{pass}}",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://www.movebank.org/movebank/service/direct-read?entity_type=event&study_id=2911040",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "4.4 Get event data with additional event-level attributes",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "{{user}}",
+						"password": "{{pass}}",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://www.movebank.org/movebank/service/direct-read?entity_type=event&study_id=2911040&attributes=individual_id,timestamp,location_long,location_lat,visible",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "attr - deployment",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "{{user}}",
+						"password": "{{pass}}",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://www.movebank.org/movebank/service/direct-read?entity_type=deployment&study_id=1764627",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "attr - individual",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "{{user}}",
+						"password": "{{pass}}",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://www.movebank.org/movebank/service/direct-read?entity_type=individual&study_id=1764627",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": [
+				{
+					"id": "3219241b-ac6c-43ac-a9fe-a9f464737cf9",
+					"name": "buffalo",
+					"originalRequest": {
+						"url": "https://www.movebank.org/movebank/service/direct-read?entity_type=individual&study_id=1764627",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"name": "Authorization",
+								"value": "Basic"
+							}
+						],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"name": "Connection",
+							"description": ""
+						},
+						{
+							"key": "Content-Disposition",
+							"value": "attachment; filename*=individual.csv",
+							"name": "Content-Disposition",
+							"description": ""
+						},
+						{
+							"key": "Content-Length",
+							"value": "301",
+							"name": "Content-Length",
+							"description": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/csv",
+							"name": "Content-Type",
+							"description": ""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 16 Mar 2017 19:31:31 GMT",
+							"name": "Date",
+							"description": ""
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=15, max=100",
+							"name": "Keep-Alive",
+							"description": ""
+						},
+						{
+							"key": "Server",
+							"value": "Apache-Coyote/1.1",
+							"name": "Server",
+							"description": ""
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Sat Jan 16 2038 23:14:07 GMT-0500 (EST)",
+							"httpOnly": false,
+							"domain": "www.movebank.org",
+							"path": "/movebank",
+							"secure": false,
+							"value": "7CF6EA60ADD2167837D9F8A7A615EA43",
+							"key": "JSESSIONID"
+						}
+					],
+					"responseTime": "350",
+					"body": "comments,death_comments,earliest_date_born,exact_date_of_birth,id,latest_date_born,local_identifier,ring_id,sex,taxon_canonical_name\r\n,,,,1764825,,\"Cilla\",,\"f\",\r\n,,,,1764822,,\"Gabs\",,\"f\",\r\n,,,,1764828,,\"Mvubu\",,\"f\",\r\n,,,,1764834,,\"Pepper\",,\"f\",\r\n,,,,1764819,,\"Queen\",,\"f\",\r\n,,,,1764831,,\"Toni\",,\"f\",\r\n"
+				}
+			]
+		},
+		{
+			"name": "attr - individual + taxon id + dob etc",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "{{user}}",
+						"password": "{{pass}}",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://www.movebank.org/movebank/service/direct-read?entity_type=individual&study_id=1764627&attributes=id,local_identifier,taxon_id,ring_id,sex,earliest_date_born,latest_date_born,exact_date_of_birth",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": [
+				{
+					"id": "db763813-6a15-4ce4-a7a9-07df36b02a8c",
+					"name": "buffalo",
+					"originalRequest": {
+						"url": "https://www.movebank.org/movebank/service/direct-read?entity_type=individual&study_id=1764627&attributes=local_identifier,ring_id,sex,study_id,taxon_id,taxon_canonical_name",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"name": "Authorization",
+								"value": "Basic"
+							}
+						],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"name": "Connection",
+							"description": ""
+						},
+						{
+							"key": "Content-Disposition",
+							"value": "attachment; filename*=individual.csv",
+							"name": "Content-Disposition",
+							"description": ""
+						},
+						{
+							"key": "Content-Length",
+							"value": "242",
+							"name": "Content-Length",
+							"description": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/csv",
+							"name": "Content-Type",
+							"description": ""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 16 Mar 2017 19:34:56 GMT",
+							"name": "Date",
+							"description": ""
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=15, max=100",
+							"name": "Keep-Alive",
+							"description": ""
+						},
+						{
+							"key": "Server",
+							"value": "Apache-Coyote/1.1",
+							"name": "Server",
+							"description": ""
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Sat Jan 16 2038 22:14:07 GMT-0500 (EST)",
+							"httpOnly": false,
+							"domain": "www.movebank.org",
+							"path": "/movebank",
+							"secure": false,
+							"value": "7CF6EA60ADD2167837D9F8A7A615EA43",
+							"key": "JSESSIONID"
+						}
+					],
+					"responseTime": "530",
+					"body": "local_identifier,ring_id,sex,study_id,taxon_id,taxon_canonical_name\r\n\"Cilla\",,\"f\",1764627,16396,\r\n\"Gabs\",,\"f\",1764627,16396,\r\n\"Mvubu\",,\"f\",1764627,16396,\r\n\"Pepper\",,\"f\",1764627,16396,\r\n\"Queen\",,\"f\",1764627,16396,\r\n\"Toni\",,\"f\",1764627,16396,\r\n"
+				}
+			]
+		},
+		{
+			"name": "attr - sensor",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "{{user}}",
+						"password": "{{pass}}",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://www.movebank.org/movebank/service/direct-read?entity_type=sensor&tag_study_id={{buffalo}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "get sensor id"
+			},
+			"response": []
+		},
+		{
+			"name": "attr - study_attribute",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "{{user}}",
+						"password": "{{pass}}",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://www.movebank.org/movebank/service/direct-read?entity_type=study_attribute&study_id=1764627&sensor_type_id=653",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "attr - tag type",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "{{user}}",
+						"password": "{{pass}}",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://www.movebank.org/movebank/service/direct-read?entity_type=tag_type",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "to get sensor names"
+			},
+			"response": []
+		},
+		{
+			"name": "attr - tag",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "{{user}}",
+						"password": "{{pass}}",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://www.movebank.org/movebank/service/direct-read?entity_type=tag&study_id={{buffalo}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "attr - taxon",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "{{user}}",
+						"password": "{{pass}}",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://www.movebank.org/movebank/service/direct-read?entity_type=taxon",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get csv with sensor type id",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "{{user}}",
+						"password": "{{pass}}",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://www.movebank.org/movebank//service/download?entityType=study&entityId={{valid}}&downloadType=tracking-data&sensorTypeId=653&fileType=csv",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
